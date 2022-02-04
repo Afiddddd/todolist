@@ -1,26 +1,58 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+<div>
+  <nav class="menu">
+   <router-link to="/" v-slot="{isActive}">
+    <button class="btn-link" :class="{active: isActive}">Home</button>
+      </router-link>
+      <router-link to="/about" v-slot="{isActive}">
+    <button class="btn-link" :class="{active: isActive}">About</button>
+      </router-link>
+  </nav>
+  <router-view></router-view>
+</div>
 </template>
 
+
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+ 
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+
+
+
+.menu {
+    width: 100%;
+    padding: 16px;
+    background: #2c3e50;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
 }
+
+.menu a {
+  text-decoration: none;
+  color : white;
+}
+
+.btn-link {
+  border: 0px;
+  color: white;
+  padding: 10px;
+  background: none;
+  font-size: 15px;
+}
+
+.active {
+  color: #00c180;
+}
+
+
+
 </style>
